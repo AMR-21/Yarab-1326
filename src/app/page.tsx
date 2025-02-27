@@ -29,7 +29,7 @@ export default function Home() {
   const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
   return (
-    <div className="min-h-screen bg-white text-black p-8 flex flex-col items-center">
+    <div className="max-h-dvh h-dvh bg-white text-black p-8 flex flex-col items-center">
       <div className="flex flex-col items-center space-y-4">
         <h1 className="text-6xl font-bold">يارب</h1>
         <p className="text-xl">
