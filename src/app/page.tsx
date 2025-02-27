@@ -15,6 +15,8 @@ export default function Home() {
     target.valueOf() - Date.now()
   );
   useEffect(() => {
+    if (isNaN(remaining)) setRemaining(target.valueOf() - Date.now());
+
     const interval = setInterval(() => {
       setRemaining(target.valueOf() - Date.now());
     }, 1000);
@@ -37,43 +39,43 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="mt-36 flex items-center">
-        <div className="flex items-end w-fit gap-x-4 md:gap-x-8">
+      <div className="my-auto flex items-center">
+        <div className="flex flex-col items-center sm:flex-row md:items-end w-fit gap-x-4 md:gap-x-8">
           <div className="flex flex-col items-center space-y-2">
-            <p className="text-lg md:text-2xl">ايام</p>
-            <p className="text-4xl md:text-5xl font-medium tabular-nums">
+            <p className="text-2xl">ايام</p>
+            <p className="text-5xl font-medium tabular-nums">
               {formatNum(days)}
             </p>
           </div>
 
-          <p className="pb-1 md:pb-2.5 text-3xl shrink-0">:</p>
+          <p className="pb-1 hidden md:block md:pb-2.5 text-3xl shrink-0">:</p>
 
           <div className="flex flex-col items-center space-y-2">
             <p className="text-lg md:text-2xl">ساعات</p>
-            <p className="text-4xl md:text-5xl font-medium tabular-nums">
+            <p className="text-5xl font-medium tabular-nums">
               {`${formatNum(hours)}`.padStart(2, formatNum(0))}
             </p>
           </div>
-          <p className="pb-1 md:pb-2.5 text-3xl shrink-0">:</p>
+          <p className="pb-1 hidden md:block md:pb-2.5 text-3xl shrink-0">:</p>
 
           <div className="flex flex-col items-center space-y-2">
-            <p className="text-lg md:text-2xl">دقايق</p>
-            <p className="text-4xl md:text-5xl font-medium tabular-nums">
+            <p className="text-2xl">دقايق</p>
+            <p className="text-5xl font-medium tabular-nums">
               {`${formatNum(minutes)}`.padStart(2, formatNum(0))}
             </p>
           </div>
-          <p className="pb-1 md:pb-2.5 text-3xl shrink-0">:</p>
+          <p className="pb-1 hidden md:block md:pb-2.5 text-3xl shrink-0">:</p>
 
           <div className="flex flex-col items-center space-y-2">
-            <p className="text-lg md:text-2xl">ثواني</p>
-            <p className="text-4xl md:text-5xl font-medium tabular-nums">
+            <p className="text-2xl">ثواني</p>
+            <p className="text-5xl font-medium tabular-nums">
               {`${formatNum(seconds)}`.padStart(2, formatNum(0))}
             </p>
           </div>
         </div>
       </div>
 
-      <footer className="mt-auto text-lg md:text-xl font-medium">
+      <footer className="mt-auto text-xl font-medium">
         عمرو - المحلاوي - عاصم
       </footer>
     </div>
