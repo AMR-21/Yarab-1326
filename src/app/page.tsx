@@ -1,5 +1,8 @@
 'use client';
+import { differenceInDays } from 'date-fns';
 import { useEffect, useState } from 'react';
+import check from '/check.svg';
+import Image from 'next/image';
 
 const target = new Date('3-1-2026');
 
@@ -37,6 +40,13 @@ export default function Home() {
         <p className="text-xl">
           دفعة {formatNum(1)} / {formatNum(3)} / {String(formatNum(2026))}
         </p>
+
+        <div className="flex items-center gap-2">
+          <p className="text-3xl">
+            {formatNum(differenceInDays(new Date(), new Date('1-1-2025')))}
+          </p>
+          <Image src={check} alt="check" className="size-8" />
+        </div>
       </div>
 
       <div className="my-auto flex items-center">
