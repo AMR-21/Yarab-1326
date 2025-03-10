@@ -1,48 +1,10 @@
 'use client';
-import {
-  differenceInDays,
-  Duration,
-  getTime,
-  intervalToDuration,
-} from 'date-fns';
+import { differenceInDays, Duration, intervalToDuration } from 'date-fns';
 import { useEffect, useState } from 'react';
 import check from '/check.svg';
 import Image from 'next/image';
 
 const target = new Date('3-1-2026');
-
-function getTimeComponents(remaining: number) {
-  const now = new Date();
-  const futureDate = new Date(now.getTime() + remaining);
-
-  let years = futureDate.getFullYear() - now.getFullYear();
-  let months = futureDate.getMonth() - now.getMonth();
-  let days = futureDate.getDate() - now.getDate();
-
-  if (days < 0) {
-    // Adjust the month if days are negative
-    const lastMonth = new Date(
-      futureDate.getFullYear(),
-      futureDate.getMonth(),
-      0
-    );
-    days += lastMonth.getDate();
-    months -= 1;
-  }
-
-  if (months < 0) {
-    months += 12;
-    years -= 1;
-  }
-
-  const hours = Math.floor(
-    (remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
-  const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-
-  return { years, months, days, hours, minutes, seconds };
-}
 
 function formatNum(num: number) {
   return new Intl.NumberFormat('ar-EG', {
