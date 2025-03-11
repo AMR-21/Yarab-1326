@@ -212,13 +212,13 @@ export default function Home() {
         defaultValue="months"
         className="flex-grow  items-center flex flex-col  my-12 "
       >
-        <TabsList className="w-64" dir="rtl">
+        <TabsList className="" dir="rtl">
           <TabsTrigger value="weeks">اسابيع</TabsTrigger>
           <TabsTrigger value="months">شهور</TabsTrigger>
           <TabsTrigger value="days">ايام</TabsTrigger>
         </TabsList>
 
-        <div className="flex  h-1/2 items-center">
+        <div className="flex w-full  h-1/2 items-center">
           <TabsContent value="weeks">
             {render([
               { label: 'اسابيع', value: remaining?.weeks || 0 },
