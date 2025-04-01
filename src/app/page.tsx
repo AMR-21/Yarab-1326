@@ -1,14 +1,13 @@
-'use client';
+"use client";
 import {
   differenceInDays,
   intervalToDuration,
   isWithinInterval,
-} from 'date-fns';
-import { Fragment, useEffect, useState } from 'react';
-import check from '/check.svg';
-import Image from 'next/image';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import confetti from 'canvas-confetti';
+} from "date-fns";
+import { Fragment, useEffect, useState } from "react";
+import Image from "next/image";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import confetti from "canvas-confetti";
 
 interface Duration {
   weeks: number;
@@ -21,21 +20,21 @@ interface Duration {
   minutes?: number;
   seconds?: number;
 }
-const target = new Date('3-1-2026');
+const target = new Date("3-1-2026");
 
 const endTraining = {
-  start: new Date('3-11-2025'),
-  end: new Date('3-14-2025'),
+  start: new Date("3-11-2025"),
+  end: new Date("3-14-2025"),
 };
 
 const endService = {
-  start: new Date('2-25-2026'),
-  end: new Date('3-1-2026'),
+  start: new Date("2-25-2026"),
+  end: new Date("3-1-2026"),
 };
 
 function formatNum(num: number) {
-  return new Intl.NumberFormat('ar-EG', {
-    style: 'decimal',
+  return new Intl.NumberFormat("ar-EG", {
+    style: "decimal",
     useGrouping: false,
   }).format(num);
 }
@@ -194,9 +193,15 @@ export default function Home() {
           <div>
             <div className="flex items-center gap-2">
               <p className="md:text-3xl text-xl">
-                {formatNum(differenceInDays(new Date(), new Date('1-1-2025')))}
+                {formatNum(differenceInDays(new Date(), new Date("1-1-2025")))}
               </p>
-              <Image src={check} alt="check" className="size-4 md:size-8" />
+              <Image
+                src={"/check.svg"}
+                alt="check"
+                width={16}
+                height={16}
+                className="size-4 md:size-8"
+              />
             </div>
           </div>
           <span className="md:hidden">&mdash;</span>
@@ -221,30 +226,30 @@ export default function Home() {
         <div className="flex w-full  h-1/2 items-center">
           <TabsContent value="weeks">
             {render([
-              { label: 'اسابيع', value: remaining?.weeks || 0 },
-              { label: 'ايام', value: remaining?.weeksDays || 0 },
-              { label: 'ساعات', value: remaining?.hours || 0 },
-              { label: 'دقايق', value: remaining?.minutes || 0 },
-              { label: 'ثواني', value: remaining?.seconds || 0 },
+              { label: "اسابيع", value: remaining?.weeks || 0 },
+              { label: "ايام", value: remaining?.weeksDays || 0 },
+              { label: "ساعات", value: remaining?.hours || 0 },
+              { label: "دقايق", value: remaining?.minutes || 0 },
+              { label: "ثواني", value: remaining?.seconds || 0 },
             ])}
           </TabsContent>
           <TabsContent value="months">
             {render([
-              { label: 'شهور', value: remaining?.months || 0 },
-              { label: 'ايام', value: remaining?.days || 0 },
-              { label: 'ساعات', value: remaining?.hours || 0 },
-              { label: 'دقايق', value: remaining?.minutes || 0 },
-              { label: 'ثواني', value: remaining?.seconds || 0 },
+              { label: "شهور", value: remaining?.months || 0 },
+              { label: "ايام", value: remaining?.days || 0 },
+              { label: "ساعات", value: remaining?.hours || 0 },
+              { label: "دقايق", value: remaining?.minutes || 0 },
+              { label: "ثواني", value: remaining?.seconds || 0 },
             ])}
           </TabsContent>
 
           <TabsContent value="days">
             {render(
               [
-                { label: 'ايام', value: remaining?.totalDays || 0 },
-                { label: 'ساعات', value: remaining?.hours || 0 },
-                { label: 'دقايق', value: remaining?.minutes || 0 },
-                { label: 'ثواني', value: remaining?.seconds || 0 },
+                { label: "ايام", value: remaining?.totalDays || 0 },
+                { label: "ساعات", value: remaining?.hours || 0 },
+                { label: "دقايق", value: remaining?.minutes || 0 },
+                { label: "ثواني", value: remaining?.seconds || 0 },
               ],
               true
             )}
@@ -254,8 +259,8 @@ export default function Home() {
 
       <footer className="mt-auto text-center">
         <p>
-          {' '}
-          نهاية التدريب {`${formatNum(11)}-${formatNum(3)}`} &mdash;{' '}
+          {" "}
+          نهاية التدريب {`${formatNum(11)}-${formatNum(3)}`} &mdash;{" "}
           {`${formatNum(14)}-${formatNum(3)}`}
         </p>
         <p className="text-xl font-medium text-gray-400">
