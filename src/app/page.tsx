@@ -105,7 +105,7 @@ function render(
         </div>
       </div>
       <div
-        className="md:flex flex-col items-center sm:flex-row md:items-end w-fit gap-y-1.5 md:gap-x-8 px-4 py-2.5 rounded-lg backdrop-blur-2xl bg-white/10 hidden"
+        className="md:flex flex-col items-center sm:flex-row md:items-end w-fit gap-y-1.5 md:gap-x-8 px-4 md:px-8 py-2.5 rounded-lg backdrop-blur-2xl bg-white/10 hidden"
         dir="rtl"
       >
         {inputs.map((t, i, arr) => (
@@ -223,7 +223,7 @@ export default function Home() {
           <TabsTrigger value="days">ايام</TabsTrigger>
         </TabsList>
 
-        <div className="flex w-full  h-1/2 items-center">
+        <div className="flex w-full mt-4 h-1/2 items-center">
           <TabsContent value="weeks">
             {render([
               { label: "اسابيع", value: remaining?.weeks || 0 },
@@ -263,8 +263,10 @@ export default function Home() {
           نهاية التدريب {`${formatNum(11)}-${formatNum(3)}`} &mdash;{" "}
           {`${formatNum(14)}-${formatNum(3)}`}
         </p>
-        <p className="text-xl font-medium text-gray-400">
-          عمرو - المحلاوي - عاصم
+        <p className="md:text-xl font-medium text-gray-400">
+          عمرو - المحلاوي - عاصم - وليد
+          <br />
+          عبدالوهاب - بلال
         </p>
       </footer>
     </div>
