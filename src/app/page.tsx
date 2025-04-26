@@ -20,16 +20,16 @@ interface Duration {
   minutes?: number;
   seconds?: number;
 }
-const target = new Date("3-1-2026");
+const target = new Date("6-1-2026");
 
-const endTraining = {
-  start: new Date("3-11-2025"),
-  end: new Date("3-14-2025"),
-};
+// const endTraining = {
+//   start: new Date("3-11-2025"),
+//   end: new Date("3-14-2025"),
+// };
 
 const endService = {
-  start: new Date("2-25-2026"),
-  end: new Date("3-1-2026"),
+  start: new Date("5-25-2026"),
+  end: new Date("6-1-2026"),
 };
 
 function formatNum(num: number) {
@@ -132,12 +132,12 @@ function render(
 export default function Home() {
   const [remaining, setRemaining] = useState<Duration | null>();
   const [isCelebrating] = useState(
+    // isWithinInterval(Date.now(), {
+    //   ...endTraining,
+    // }) ||
     isWithinInterval(Date.now(), {
-      ...endTraining,
-    }) ||
-      isWithinInterval(Date.now(), {
-        ...endService,
-      })
+      ...endService,
+    })
   );
 
   useEffect(() => {
@@ -193,7 +193,7 @@ export default function Home() {
           <div>
             <div className="flex items-center gap-2">
               <p className="md:text-3xl text-xl">
-                {formatNum(differenceInDays(new Date(), new Date("1-1-2025")))}
+                {formatNum(differenceInDays(new Date(), new Date("4-1-2024")))}
               </p>
               <Image
                 src={"/check.svg"}
@@ -207,7 +207,7 @@ export default function Home() {
           <span className="md:hidden">&mdash;</span>
 
           <p className="text-xl">
-            دفعة {formatNum(1)} / {formatNum(3)} / {String(formatNum(2026))}
+            دفعة {formatNum(1)} / {formatNum(6)} / {String(formatNum(2026))}
           </p>
         </div>
       </div>
@@ -235,7 +235,12 @@ export default function Home() {
           </TabsContent>
           <TabsContent value="months">
             {render([
-              { label: "شهور", value: remaining?.months || 0 },
+              {
+                label: "شهور",
+                value: remaining?.years
+                  ? (remaining?.months || 0) + 12
+                  : remaining?.months || 0,
+              },
               { label: "ايام", value: remaining?.days || 0 },
               { label: "ساعات", value: remaining?.hours || 0 },
               { label: "دقايق", value: remaining?.minutes || 0 },
@@ -258,15 +263,15 @@ export default function Home() {
       </Tabs>
 
       <footer className="mt-auto text-center">
-        <p>
+        {/* <p>
           {" "}
           نهاية التدريب {`${formatNum(11)}-${formatNum(3)}`} &mdash;{" "}
           {`${formatNum(14)}-${formatNum(3)}`}
-        </p>
+        </p> */}
         <p className="md:text-xl font-medium text-gray-400">
-          عمرو - المحلاوي - عاصم - وليد
+          عبدالله علاء - عبدالله محمد
           <br />
-          عبدالوهاب - بلال
+          يوسف فتحي - عبدالرحمن محمد
         </p>
       </footer>
     </div>
